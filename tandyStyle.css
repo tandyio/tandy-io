@@ -1,0 +1,11 @@
+body {
+    font-size: 12pt;
+    font-family: 'Nunito', sans-serif;
+    color: black;
+    background-color: #fafafa;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
