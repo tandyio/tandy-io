@@ -27,6 +27,6 @@ phases:
     commands:
       - echo Executing Post Build Phase
       - echo Pushing dist to S3 at $PATH
-      - aws s3 cp dist/* s3://tandy-io-prod.s3.amazonaws.com/ --recursive
+      - aws s3 cp dist s3://tandy-io-prod.s3.amazonaws.com/ --recursive --acl public-read 
     finally:
       - echo Executing Post Build Finally  
