@@ -1,0 +1,30 @@
+version: 0.2
+
+env:
+  variables:
+    CACHE_CONTROL: "86400"
+    S3_BUCKET: "tandy.io"
+    BUILD_FOLDER: "dist"
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 10
+    commands:
+      - echo Executing Install Phase
+      - echo Installing NPM and Angular CLI Dependencies...
+      - npm install
+      - npm install -g @angular/cli 
+    finally:
+      - echo Executing Install Finally  
+  build:
+    commands:
+      - echo Executing Build Phase
+      - ng build
+    finally:
+      - echo Executing Build Finally
+artifacts:
+  files:
+    - '**/*'
+  base-directory: 'dist*'
+  discard-paths: yes
