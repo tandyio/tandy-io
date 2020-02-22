@@ -30,3 +30,8 @@ phases:
       - aws s3 cp dist s3://tandy-io-prod/ --recursive --acl public-read 
     finally:
       - echo Executing Post Build Finally  
+artifacts:
+  files:
+    -'**/*'
+  base-directory: 'dist'
+  discard-paths: yes
