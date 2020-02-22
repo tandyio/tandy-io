@@ -23,7 +23,7 @@ phases:
       - ng build
     finally:
       - echo Executing Build Finally
-  post-build:
+  post_build:
     commands:
       - aws s3 cp ${BUILD_FOLDER} s3://${S3_BUCKET}.s3.amazonaws.com --recursive --cache-control max-age=${CACHE_CONTROL}
 artifacts:
