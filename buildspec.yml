@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   variables:
-    CACHE_CONTROL: "86400"
+    CACHE_CONTROL: "2592000"
     S3_BUCKET: "tandy.io"
     BUILD_FOLDER: "dist"
 
@@ -23,6 +23,9 @@ phases:
       - ng build
     finally:
       - echo Executing Build Finally
+  post-build:
+    commands:
+      - aws s3 cp ${BUILD_FOLDER} s3://${S3_BUCKET}.s3.amazonaws.com --recursive --cache-control max-age=${CACHE_CONTROL}
 artifacts:
   files:
     - '**/*'
