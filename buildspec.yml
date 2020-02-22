@@ -3,7 +3,7 @@ version: 0.2
 env:
   variables:
     CACHE_CONTROL: "86400"
-    S3_BUCKET: "s3://tandy.io.s3.amazonaws.com/"
+    S3_BUCKET: "s3://tandy-io-prod.s3.amazonaws.com/"
     BUILD_FOLDER: "dist"
 
 phases:
@@ -25,9 +25,8 @@ phases:
       - echo Executing Build Finally
   post_build:
     commands:
-      - aws s3 cp ${BUILD_FOLDER} ${S3_BUCKET} --recursive --cache-control max-age=${CACHE_CONTROL}
-artifacts:
-  files:
-    - '**/*'
-  base-directory: 'dist*'
-  discard-paths: yes
+      - echo Executing Post Build Phase
+      - echo Pushing dist to S3 at $PATH
+      - aws s3 cp dist/* s3://tandy-io-prod.s3.amazonaws.com/ --recursive
+    finally:
+      - echo Executing Post Build Finally  
