@@ -25,7 +25,7 @@ phases:
       - echo Executing Build Finally
   post_build:
     commands:
-      - aws s3 cp ${BUILD_FOLDER} ${S3_BUCKET} --recursive --cache-control max-age=${CACHE_CONTROL}
+      - aws s3 cp ${S3_BUCKET}/${BUILD_FOLDER} --recursive --cache-control max-age=${CACHE_CONTROL}
 artifacts:
   files:
     - '**/*'
