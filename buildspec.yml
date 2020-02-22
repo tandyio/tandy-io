@@ -3,7 +3,7 @@ version: 0.2
 env:
   variables:
     CACHE_CONTROL: "86400"
-    S3_BUCKET: "s3://tandy-io-prod.s3.amazonaws.com/"
+    S3_BUCKET: "s3://tandy-io-prod/"
     BUILD_FOLDER: "dist"
 
 phases:
@@ -27,6 +27,6 @@ phases:
     commands:
       - echo Executing Post Build Phase
       - echo Pushing dist to S3 at $PATH
-      - aws s3 cp dist s3://tandy-io-prod.s3.amazonaws.com/ --recursive --acl public-read 
+      - aws s3 cp dist s3://tandy-io-prod/ --recursive --acl public-read 
     finally:
       - echo Executing Post Build Finally  
