@@ -23,13 +23,13 @@ phases:
       - ng build
     finally:
       - echo Executing Build Finally
-  post_build:
-    commands:
-      - echo Executing Post Build Phase
-      - echo Pushing dist to S3 at $PATH
-      - aws s3 cp dist s3://tandy-io-prod/ --recursive --acl public-read 
-    finally:
-      - echo Executing Post Build Finally  
+  # post_build:
+  #   commands:
+  #     - echo Executing Post Build Phase
+  #     - echo Pushing dist to S3 at $PATH
+  #     - aws s3 cp dist s3://tandy-io-prod/ --recursive --acl public-read 
+  #   finally:
+  #     - echo Executing Post Build Finally  
 artifacts:
   files:
     - '**/*'
