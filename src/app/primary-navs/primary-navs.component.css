@@ -33,7 +33,7 @@
     background-color: #4CAF50; 
     cursor: pointer;
   }
-  .nav .label {
+  .nav .button {
     display: inline-block;
     color: white;
     line-height: 1em;

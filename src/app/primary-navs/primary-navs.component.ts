@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Nav } from '../static-interfaces';
+import { Nav } from '../models/primary-navs.model';
 import { NAVS } from '../static-content';
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { AppState } from './../app.state';
+import * as NavActions from './../actions/primary-navs.actions'
 
 @Component({
   selector: 'app-primary-navs',
@@ -10,8 +14,15 @@ import { NAVS } from '../static-content';
 export class PrimaryNavsComponent implements OnInit {
   
   navs = NAVS;
+  selectedNav: Observable<number>;
 
-  constructor() { }
+  constructor(private store: Store<AppState>) {
+    this.selectedNav = store.select('SelectedNav');
+  }
+
+  navSelect(Nav) {
+    this.store.dispatch(NavActions.navSelect(Nav["id"]))
+  }
 
   ngOnInit(): void {
   }
