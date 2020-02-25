@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DisplayBoxComponent } from './display-box.component';
+import { DynamicInfoComponent } from './dynamic-info.component';
 
-describe('DisplayBoxComponent', () => {
-  let component: DisplayBoxComponent;
-  let fixture: ComponentFixture<DisplayBoxComponent>;
+describe('DynamicInfoComponent', () => {
+  let component: DynamicInfoComponent;
+  let fixture: ComponentFixture<DynamicInfoComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DisplayBoxComponent ]
+      declarations: [ DynamicInfoComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DisplayBoxComponent);
+    fixture = TestBed.createComponent(DynamicInfoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

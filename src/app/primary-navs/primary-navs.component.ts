@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Nav } from '../nav';
-import { NAVS } from '../static-primary-navs';
+import { Nav } from '../static-interfaces';
+import { NAVS } from '../static-content';
 
 @Component({
   selector: 'app-primary-navs',
