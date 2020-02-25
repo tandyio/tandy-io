@@ -1,7 +1,8 @@
 <a *ngFor="let info of infos">
+    <a *ngIf="info.parent_nav_id === selectedNav">
         <div class="info">
             <div class="title">{{info.title}}</div>
             <div class="message">{{info.message}}</div>
         </div>
+    </a>
 </a>
-

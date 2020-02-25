@@ -20,8 +20,8 @@ export class PrimaryNavsComponent implements OnInit {
     this.selectedNav = store.select('SelectedNav');
   }
 
-  navSelect(Nav) {
-    this.store.dispatch(NavActions.navSelect(Nav["id"]))
+  navSelect(nav_id) {
+    this.store.dispatch(NavActions.navSelect({selected_nav_id: nav_id}))
   }
 
   ngOnInit(): void {

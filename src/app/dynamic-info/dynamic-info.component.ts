@@ -12,11 +12,9 @@ import { Observable } from 'rxjs';
 })
 export class DynamicInfoComponent implements OnInit {
 
+  infos = INFOS;
+
   selectedNav: Observable<number>;
-
-  matchParent = function(info: Info){if (this.selectedNav === info.parent_nav_id){return true}return false;};
-
-  infos = INFOS.filter(parentId => this.matchParent);
 
   constructor(private store: Store<AppState>) {
     this.selectedNav = store.select('SelectedNav'); 

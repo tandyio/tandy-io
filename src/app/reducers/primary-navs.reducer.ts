@@ -1,6 +1,5 @@
 import { Action, createReducer, on } from '@ngrx/store'
 import * as NavActions from './../actions/primary-navs.actions'
-import { ɵBrowserDomAdapter } from '@angular/platform-browser'
 
 export interface State {
     selected_nav_id: number;
@@ -12,9 +11,9 @@ export const initialState: State = {
 
 const primaryNavReducer = createReducer(
     initialState,
-    on(NavActions.navSelect, (state, { nav_id }) => ({...state, selected_nav_id: nav_id}))
+    on(NavActions.navSelect, (state, { selected_nav_id }) => ({...state, selected_nav_id: selected_nav_id}))
 )
 
-export function reducer(state: State, action: Action) {
+export function reducer(state: State | undefined, action: Action) {
     return primaryNavReducer(state, action);
 }
