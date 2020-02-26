@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Info } from '../models/dynamic-info.model';
+import { DynamicInfo, PrimaryNav } from '../models/interfaces';
 import { INFOS } from '../static-content';
-import { AppState } from './../app.state';
-import { Store } from '@ngrx/store';
+import { Store, props, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { map, filter, pluck } from 'rxjs/operators';
+import { selectActivePrimaryNav } from '../models/selectors';
+import { AppState } from './../app.state'
 
 @Component({
   selector: 'app-dynamic-info',
@@ -12,15 +14,15 @@ import { Observable } from 'rxjs';
 })
 export class DynamicInfoComponent implements OnInit {
 
-  infos = INFOS;
+  activeNav$: Observable<{id: number, name: string}>;
 
-  selectedNav: Observable<number>;
+  displayedInfos: DynamicInfo[] = INFOS;
 
   constructor(private store: Store<AppState>) {
-    this.selectedNav = store.select('SelectedNav'); 
-   }
+    this.activeNav$ = this.store.pipe(select(selectActivePrimaryNav));
+  } 
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
 }

@@ -1,3 +1,5 @@
+import { PrimaryNav } from './models/interfaces'
+
 export interface AppState {
-    readonly SelectedNav: number
+    activePrimaryNav: {id: number, name: string};
 }

@@ -1,19 +1,18 @@
 import { Action, createReducer, on } from '@ngrx/store'
 import * as NavActions from './../actions/primary-navs.actions'
+import { PrimaryNav } from '../models/interfaces'
+import { AppState } from '../app.state'
 
-export interface State {
-    selected_nav_id: number;
-}
-
-export const initialState: State = {
-    selected_nav_id: 1,
+export const initialState: AppState = {
+    activePrimaryNav: {id: 1, name: 'about'}
 }
 
 const primaryNavReducer = createReducer(
     initialState,
-    on(NavActions.navSelect, (state, { selected_nav_id }) => ({...state, selected_nav_id: selected_nav_id}))
+    on(NavActions.navSelect, (state, { activePrimaryNav }) => ( 
+        {activePrimaryNav: {id: activePrimaryNav.id, name: activePrimaryNav.name}}))
 )
 
-export function reducer(state: State | undefined, action: Action) {
+export function reducer(state: {activePrimaryNav: PrimaryNav} | undefined, action: Action) {
     return primaryNavReducer(state, action);
 }
