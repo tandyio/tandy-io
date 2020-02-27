@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DynamicInfo, PrimaryNav } from '../models/interfaces';
 import { INFOS } from '../static-content';
-import { Store, props, select } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { map, filter, pluck } from 'rxjs/operators';
 import { selectActivePrimaryNav } from '../models/selectors';

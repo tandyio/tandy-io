@@ -19,7 +19,7 @@ import { DynamicInfoComponent } from './dynamic-info/dynamic-info.component';
     BrowserModule,
     AppRoutingModule,
     StoreModule.forRoot({activePrimaryNav: fromPrimaryNavs.reducer}),
-    StoreDevtoolsModule.instrument({maxAge: 10})
+    StoreDevtoolsModule.instrument({maxAge: 100})
   ],
   providers: [],
   bootstrap: [AppComponent]
