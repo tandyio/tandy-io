@@ -1,0 +1,8 @@
+<a *ngIf="(activeNav$ | async) as activeNav">
+    <a *ngFor="let info of displayedInfos">
+        <div *ngIf="info.parent_nav_id === activeNav.activePrimaryNav.id" class="info">
+            <div class="title">{{info.title}}</div>
+            <div class="message">{{info.message}}</div>
+        </div>
+    </a>
+</a>

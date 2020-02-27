@@ -1,6 +1,6 @@
 body {
     font-size: 12pt;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Nunito';
     color: black;
     background-color: #fafafa;
 }
@@ -8,4 +8,9 @@ body {
 img {
     max-width: 100%;
     height: auto;
+}
+
+app-root {
+    background-color: #fafafa;
+    font-weight: lighter;
 }

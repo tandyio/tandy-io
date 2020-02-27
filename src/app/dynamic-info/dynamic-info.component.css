@@ -1,0 +1,19 @@
+.info {
+    margin: .5em 0 .5em 0;
+    background-color: #C8E6C9;
+    text-align: left;
+    max-width: 29.5em;
+    border-radius: 7px;
+}
+
+.info .title {
+    font-size: 2em;
+    font-weight: lighter;
+    padding: .5em .5em 0 .5em;
+}
+
+.info .message {
+    font-size: 1em;
+    font-weight: lighter;
+    padding: .5em 1em 1em 1em;
+}
